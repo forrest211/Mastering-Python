@@ -11,14 +11,23 @@ rods = {
 }
 
 def make_allowed_move(rod1, rod2):
+    # When True, a disk can be moved from rod1 to rod2, and vice-versa when False
     forward = False
+
+    # If rod2 is empty, a disk can be moved onto it
     if not rods[rod2]:
         forward = True
+
+    # rod1 has at least one disk, and the top disk is smaller than the top one on rod2
     elif rods[rod1] and rods[rod1][-1] < rods[rod2][-1]:
         forward = True
+
+    # If forward is True, a disk is moved from rod1 to rod2
     if forward:
         print(f'Moving disk {rods[rod1][-1]} from {rods[rod1]} to {rods[rod2]}')
         rods[rod2].append(rods[rod1].pop())
+
+    # Otherwise, a disk must be moved from rod2 to rod1
     else:
         print(f'Moving disk {rods[rod2][-1]} from {rods[rod2]} to {rods[rod1]}')
         rods[rod1].append(rods[rod2].pop())
