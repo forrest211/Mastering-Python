@@ -1,5 +1,7 @@
 NUMBER_OF_DISKS = 4
 number_of_moves = 2 ** NUMBER_OF_DISKS - 1
+
+# Disks are represented as integers stacked on top of each other, the smallest and topmost disk being 1
 rods = {
     'A': list(range(NUMBER_OF_DISKS, 0, -1)),
     'B': [],
